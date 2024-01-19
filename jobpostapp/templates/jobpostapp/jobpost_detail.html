@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="content">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-body">
+                        <h1 style="color: blueviolet;">{{ details.Titel }}</h1>
+                        <p>Name of company : {{ details.company }}</p>
+                        <p> Salary  :        {{ details.salary }}</p>
+                        <p> Place   :        {{ details.location }}</p>
+                        <p>Type   :          {{ details.type }}</p>
+                        <p> experience  :    {{ details.experience }}</p>
+                        <p> Description :    {{ details.Description }}</p><br><br><br><br>
+
+                        <h1>Roles & Resposibilities</h1>
+                        
+                        <p>{{ details.Roles }}</p><br><br><br>
+
+                        <p><a href="{% url 'pavan' %}"><input type="submit" value="Apply"></a>
+                        <a href="{% url 'job' %}"><input type="submit" value="Back"></a></p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

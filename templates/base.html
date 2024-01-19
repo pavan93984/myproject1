@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  .fa {
+    padding: 20px;
+    font-size: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
+
+
+<body>
+    
+
+</html><nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container-fluid">
+      <a href="{% url 'homepro' %}"><img src="{% static 'images/logo.png' %}" alt="" style="height: 100px; width: 100px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="{% url 'job' %}" style="margin: 12px;">JobPost</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'blog' %}" style="margin: 12px;">Blog</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="{% url 'bookmarks' %}" style="margin: 12px;">BookMarks</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="{% url 'liked' %}" style="margin: 12px;">Liked Post</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'user_logout' %}" style="margin: 12px;">Logout</a>
+          </li>
+          <li class="nav-item" style="margin-left: 400px;">
+            <a class="nav-link active" aria-current="page" href="#" style="font-size: 30px;">wellcome  {{request.user.username}}</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'profil' %}"><i class='bx bx-user-circle' style="font-size: 60px;"></i></a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'user_login' %}">Login</a>
+          
+          {% endif %}
+
+
+      </div>
+    </div>
+  </nav>
+  {% block content %}
+
+  {% endblock %}
+  <script src="{% static 'js/url.js' %}" id="url"></script>
+  
+
+</body>

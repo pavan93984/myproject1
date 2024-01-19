@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="">
+        {% csrf_token %}
+        {{ pavan.as_p }}
+        <input type="submit" value="submit">
+    </form>
+    
+{% endblock %}
